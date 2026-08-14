@@ -315,7 +315,7 @@ function Portfolio() {
                     <img
                       src={profileAsset.url}
                       alt="Aniket Kumar — Full Stack Developer"
-                      className="h-72 w-60 object-cover object-top sm:h-80 sm:w-68 lg:h-96 lg:w-76"
+                      className="h-72 w-60 object-cover object-top sm:h-80 sm:w-64 lg:h-96 lg:w-72"
                       loading="eager"
                     />
                   </div>
