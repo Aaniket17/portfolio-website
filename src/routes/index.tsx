@@ -302,25 +302,43 @@ function Portfolio() {
 
           {/* PHOTO COLUMN */}
           <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
-            <div className="relative">
-              {/* Ambient glow */}
-              <div className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-gradient-to-tr from-indigo-500/35 via-purple-500/35 to-pink-500/35 blur-[60px] animate-pulse-glow" />
-              <div className="absolute -inset-10 -z-20 rounded-[3rem] bg-gradient-to-br from-cyan-500/20 via-violet-500/20 to-pink-500/20 blur-[80px]" />
-              {/* Glassmorphism backdrop */}
-              <div className="absolute -inset-3 -z-[5] rounded-[2.5rem] bg-surface/50 backdrop-blur-2xl border border-surface-border/60" />
-              {/* Floating frame — portrait-friendly rounded shape so hair/head isn't cropped */}
+            <div className="group relative">
+              {/* Soft ambient glow */}
+              <div className="absolute -inset-16 -z-10 rounded-full bg-blue-500/10 blur-[120px] opacity-60 transition-opacity duration-1000 group-hover:opacity-100" />
+
+              {/* Premium glass frame container */}
               <div className="animate-float">
-                <div className="rounded-[2.5rem] bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 p-1.5 shadow-[0_0_70px_-12px_rgba(139,92,246,0.6)]">
-                  <div className="overflow-hidden rounded-[2.3rem] border-[6px] border-background bg-card">
+                <div className="relative z-10 rounded-[2.5rem] bg-white/5 p-1 backdrop-blur-2xl border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] sm:rounded-[3rem] sm:p-1.5 lg:rounded-[3.5rem]">
+                  {/* Portrait inner wrapper */}
+                  <div className="relative overflow-hidden rounded-[2.3rem] bg-card ring-1 ring-white/5 sm:rounded-[2.8rem] lg:rounded-[3.2rem]">
                     <img
                       src={profileAsset.url}
                       alt="Aniket Kumar — Full Stack Developer"
-                      className="h-72 w-60 object-cover object-top sm:h-80 sm:w-64 lg:h-96 lg:w-72"
+                      className="block h-72 w-60 object-cover object-top transition-transform duration-700 group-hover:scale-105 sm:h-80 sm:w-64 lg:h-96 lg:w-72"
                       loading="eager"
                     />
+                    {/* Subtle gradient overlay for depth */}
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-white/5" />
+                    {/* Inner reflection streak */}
+                    <div className="pointer-events-none absolute -inset-full -translate-x-full rotate-45 bg-gradient-to-tr from-transparent via-white/5 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+                  </div>
+
+                  {/* Availability indicator */}
+                  <div className="absolute -bottom-4 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 rounded-full border border-white/10 bg-background/80 px-4 py-2 shadow-2xl backdrop-blur-xl">
+                    <span className="relative flex h-2 w-2">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.5)]" />
+                    </span>
+                    <span className="whitespace-nowrap text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">
+                      Available for hire
+                    </span>
                   </div>
                 </div>
               </div>
+
+              {/* Outer technical corners */}
+              <div className="absolute -right-2 -top-2 h-8 w-8 rounded-tr-2xl border-t border-r border-white/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="absolute -bottom-2 -left-2 h-8 w-8 rounded-bl-2xl border-b border-l border-white/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             </div>
           </div>
         </div>
