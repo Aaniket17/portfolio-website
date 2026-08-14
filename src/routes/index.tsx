@@ -245,55 +245,82 @@ function Portfolio() {
       </header>
 
       {/* HERO */}
-      <section id="top" className="relative mx-auto max-w-6xl px-5 pb-10 pt-20 sm:pt-28">
-        <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex animate-float items-center gap-2 rounded-full border border-emerald/40 bg-emerald/10 px-4 py-1.5 text-xs font-semibold text-emerald">
-            <span className="animate-pulse-glow">🟢</span> Open to Software Engineer &amp; MERN Stack Roles
-          </span>
-          <h1 className="mt-7 text-4xl font-extrabold leading-[1.1] sm:text-6xl">
-            Building <span className="grad-text">Scalable Web Apps</span> &amp;{" "}
-            <span className="grad-text-neon">Digital Experiences</span>
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Hi, I&apos;m Aniket Kumar — Full Stack Web Developer specializing in the MERN Stack,
-            distributed systems, and modern UI engineering.
-          </p>
-          <div className="mt-9 flex flex-wrap justify-center gap-3">
-            <a
-              href="#projects"
-              className="inline-flex items-center gap-2 rounded-full btn-gradient px-6 py-3 text-sm font-semibold"
-            >
-              Explore Projects <Rocket className="h-4 w-4" />
-            </a>
-            <a
-              href={resumeAsset.url}
-              target="_blank"
-              rel="noreferrer"
-              download="AniketKumarResume.pdf"
-              className="inline-flex items-center gap-2 rounded-full btn-glass px-6 py-3 text-sm font-semibold"
-            >
-              Download Resume <FileDown className="h-4 w-4" />
-            </a>
+      <section id="top" className="relative mx-auto max-w-6xl px-5 pb-10 pt-16 sm:pt-24 lg:pt-28">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-14">
+          {/* TEXT COLUMN */}
+          <div className="order-2 text-center lg:order-1 lg:text-left">
+            <span className="inline-flex animate-float items-center gap-2 rounded-full border border-emerald/40 bg-emerald/10 px-4 py-1.5 text-xs font-semibold text-emerald">
+              <span className="animate-pulse-glow">🟢</span> Open to Software Engineer &amp; MERN Stack Roles
+            </span>
+            <h1 className="mt-7 text-4xl font-extrabold leading-[1.1] sm:text-5xl xl:text-6xl">
+              Building <span className="grad-text">Scalable Web Apps</span> &amp;{" "}
+              <span className="grad-text-neon">Digital Experiences</span>
+            </h1>
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-0">
+              Hi, I&apos;m Aniket Kumar — Full Stack Web Developer specializing in the MERN Stack,
+              distributed systems, and modern UI engineering.
+            </p>
+            <div className="mt-9 flex flex-wrap justify-center gap-3 lg:justify-start">
+              <a
+                href="#projects"
+                className="inline-flex items-center gap-2 rounded-full btn-gradient px-6 py-3 text-sm font-semibold"
+              >
+                Explore Projects <Rocket className="h-4 w-4" />
+              </a>
+              <a
+                href={resumeAsset.url}
+                target="_blank"
+                rel="noreferrer"
+                download="AniketKumarResume.pdf"
+                className="inline-flex items-center gap-2 rounded-full btn-glass px-6 py-3 text-sm font-semibold"
+              >
+                Download Resume <FileDown className="h-4 w-4" />
+              </a>
+            </div>
+
+            <div className="mt-10 flex justify-center lg:justify-start">
+              <div className="flex items-center gap-2 rounded-full glass px-3 py-2">
+                {[
+                  { icon: Github, href: GH, label: "GitHub", ext: true },
+                  { icon: Linkedin, href: "https://linkedin.com/in/Aniket", label: "LinkedIn", ext: true },
+                  { icon: Mail, href: `mailto:${EMAIL}`, label: "Email", ext: false },
+                  { icon: Phone, href: "tel:+917007437359", label: "Phone", ext: false },
+                ].map(({ icon: Icon, href, label, ext }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    {...(ext ? { target: "_blank", rel: "noreferrer" } : {})}
+                    className="grid h-11 w-11 place-items-center rounded-full border border-surface-border text-muted-foreground transition-all hover:-translate-y-1 hover:border-indigo/60 hover:text-foreground"
+                  >
+                    <Icon className="h-5 w-5" />
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
 
-          <div className="mt-10 flex justify-center">
-            <div className="flex items-center gap-2 rounded-full glass px-3 py-2">
-              {[
-                { icon: Github, href: GH, label: "GitHub", ext: true },
-                { icon: Linkedin, href: "https://linkedin.com/in/Aniket", label: "LinkedIn", ext: true },
-                { icon: Mail, href: `mailto:${EMAIL}`, label: "Email", ext: false },
-                { icon: Phone, href: "tel:+917007437359", label: "Phone", ext: false },
-              ].map(({ icon: Icon, href, label, ext }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  {...(ext ? { target: "_blank", rel: "noreferrer" } : {})}
-                  className="grid h-11 w-11 place-items-center rounded-full border border-surface-border text-muted-foreground transition-all hover:-translate-y-1 hover:border-indigo/60 hover:text-foreground"
-                >
-                  <Icon className="h-5 w-5" />
-                </a>
-              ))}
+          {/* PHOTO COLUMN */}
+          <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
+            <div className="relative">
+              {/* Ambient glow */}
+              <div className="absolute -inset-8 -z-10 rounded-full bg-gradient-to-tr from-indigo-500/35 via-purple-500/35 to-pink-500/35 blur-[70px] animate-pulse-glow" />
+              <div className="absolute -inset-12 -z-20 rounded-full bg-gradient-to-br from-cyan-500/20 via-violet-500/20 to-pink-500/20 blur-[90px]" />
+              {/* Glassmorphism backdrop */}
+              <div className="absolute -inset-4 -z-[5] rounded-[3rem] bg-surface/50 backdrop-blur-2xl border border-surface-border/60" />
+              {/* Floating frame */}
+              <div className="animate-float">
+                <div className="rounded-full bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 p-1.5 shadow-[0_0_70px_-12px_rgba(139,92,246,0.6)]">
+                  <div className="overflow-hidden rounded-full border-[6px] border-background bg-card">
+                    <img
+                      src={profileAsset.url}
+                      alt="Aniket Kumar — Full Stack Developer"
+                      className="h-60 w-60 object-cover sm:h-72 sm:w-72 lg:h-80 lg:w-80"
+                      loading="eager"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
