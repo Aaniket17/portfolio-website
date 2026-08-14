@@ -285,10 +285,11 @@ function Portfolio() {
               <div className="flex items-center gap-2 rounded-full glass px-3 py-2">
                 {[
                   { icon: Github, href: GH, label: "GitHub", ext: true },
-                  { icon: Linkedin, href: "https://linkedin.com/in/Aniket", label: "LinkedIn", ext: true },
-                  { icon: Mail, href: `mailto:${EMAIL}`, label: "Email", ext: false },
+                  { icon: Linkedin, href: LINKEDIN, label: "LinkedIn", ext: true },
+                  { icon: Mail, href: GMAIL_COMPOSE, label: "Gmail", ext: true },
                   { icon: Phone, href: "tel:+917007437359", label: "Phone", ext: false },
                 ].map(({ icon: Icon, href, label, ext }) => (
+
                   <a
                     key={label}
                     href={href}
