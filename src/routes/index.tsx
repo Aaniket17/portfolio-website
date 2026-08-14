@@ -304,18 +304,18 @@ function Portfolio() {
           <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
             <div className="relative">
               {/* Ambient glow */}
-              <div className="absolute -inset-8 -z-10 rounded-full bg-gradient-to-tr from-indigo-500/35 via-purple-500/35 to-pink-500/35 blur-[70px] animate-pulse-glow" />
-              <div className="absolute -inset-12 -z-20 rounded-full bg-gradient-to-br from-cyan-500/20 via-violet-500/20 to-pink-500/20 blur-[90px]" />
+              <div className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-gradient-to-tr from-indigo-500/35 via-purple-500/35 to-pink-500/35 blur-[60px] animate-pulse-glow" />
+              <div className="absolute -inset-10 -z-20 rounded-[3rem] bg-gradient-to-br from-cyan-500/20 via-violet-500/20 to-pink-500/20 blur-[80px]" />
               {/* Glassmorphism backdrop */}
-              <div className="absolute -inset-4 -z-[5] rounded-[3rem] bg-surface/50 backdrop-blur-2xl border border-surface-border/60" />
-              {/* Floating frame */}
+              <div className="absolute -inset-3 -z-[5] rounded-[2.5rem] bg-surface/50 backdrop-blur-2xl border border-surface-border/60" />
+              {/* Floating frame — portrait-friendly rounded shape so hair/head isn't cropped */}
               <div className="animate-float">
-                <div className="rounded-full bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 p-1.5 shadow-[0_0_70px_-12px_rgba(139,92,246,0.6)]">
-                  <div className="overflow-hidden rounded-full border-[6px] border-background bg-card">
+                <div className="rounded-[2.5rem] bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 p-1.5 shadow-[0_0_70px_-12px_rgba(139,92,246,0.6)]">
+                  <div className="overflow-hidden rounded-[2.3rem] border-[6px] border-background bg-card">
                     <img
                       src={profileAsset.url}
                       alt="Aniket Kumar — Full Stack Developer"
-                      className="h-60 w-60 object-cover sm:h-72 sm:w-72 lg:h-80 lg:w-80"
+                      className="h-72 w-60 object-cover object-top sm:h-80 sm:w-64 lg:h-96 lg:w-72"
                       loading="eager"
                     />
                   </div>
