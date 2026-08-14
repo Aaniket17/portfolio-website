@@ -505,10 +505,11 @@ function Portfolio() {
         <div className="grid gap-5 lg:grid-cols-2">
           <div className="flex flex-col gap-4">
             {[
-              { icon: Mail, label: "Email", value: EMAIL, href: `mailto:${EMAIL}` },
+              { icon: Mail, label: "Email", value: EMAIL, href: GMAIL_COMPOSE },
               { icon: Phone, label: "Phone", value: PHONE, href: "tel:+917007437359" },
               { icon: MapPin, label: "Location", value: "India", href: null },
             ].map(({ icon: Icon, label, value, href }) => (
+
               <div key={label} className="glass flex items-center gap-4 p-5">
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl btn-gradient">
                   <Icon className="h-5 w-5" />
