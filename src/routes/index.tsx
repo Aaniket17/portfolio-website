@@ -73,6 +73,9 @@ const SKILLS: { group: string; items: string[]; tone: "indigo" | "emerald" | "am
 ];
 
 const GH = "https://github.com/Aaniket17";
+const LINKEDIN = "https://www.linkedin.com/in/aniketkumar17/";
+const GMAIL_COMPOSE = "https://mail.google.com/mail/?view=cm&fs=1&to=aniketkumar.2000.17@gmail.com";
+
 
 const PROJECTS = [
   {
