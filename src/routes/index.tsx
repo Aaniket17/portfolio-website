@@ -203,12 +203,19 @@ function Portfolio() {
     const form = e.currentTarget;
     const data = new FormData(form);
     setSending(true);
+    const name = encodeURIComponent(String(data.get("name") || ""));
+    const fromEmail = encodeURIComponent(String(data.get("email") || ""));
     const subject = encodeURIComponent(String(data.get("subject") || "Portfolio enquiry"));
     const body = encodeURIComponent(
       `Name: ${data.get("name")}\nEmail: ${data.get("email")}\n\n${data.get("message")}`,
     );
-    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
-    toast.success("Opening your mail app…");
+    window.open(
+      `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}&su=${subject}&body=${body}`,
+      "_blank",
+      "noopener,noreferrer",
+    );
+    toast.success("Opening Gmail compose…");
+
     setTimeout(() => {
       setSending(false);
       form.reset();
