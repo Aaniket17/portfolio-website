@@ -15,8 +15,10 @@ import {
   Sparkles,
 } from "lucide-react";
 import { toast } from "sonner";
-import resumeAsset from "@/assets/resume.pdf.asset.json";
-import profileAsset from "@/assets/passport_pic_1.png.asset.json";
+
+// Assets Import
+import profileImg from "../assets/aniket-profile.png";
+import resumePdf from "../assets/resume.pdf";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -47,7 +49,8 @@ const STATS = [
   { icon: "🌐", value: "Open Source", label: "Hacktoberfest Contributor", tone: "grad-text-neon" },
 ];
 
-const SKILLS: { group: string; items: string[]; tone: "indigo" | "emerald" | "amber" }[] = [
+// Clean, aesthetic and eye-friendly pastel tones
+const SKILLS: { group: string; items: string[]; tone: "indigo" | "teal" | "sky" | "purple" | "emerald" | "rose" }[] = [
   {
     group: "Frontend",
     tone: "indigo",
@@ -55,19 +58,27 @@ const SKILLS: { group: string; items: string[]; tone: "indigo" | "emerald" | "am
   },
   {
     group: "Backend & APIs",
-    tone: "emerald",
+    tone: "teal",
     items: ["Node.js", "Express.js", "RESTful APIs", "Socket.io (WebSockets)", "Authentication (OAuth/Passport)"],
   },
-  { group: "Database", tone: "amber", items: ["MongoDB", "Mongoose", "SQL / DBMS"] },
+  { 
+    group: "Database", 
+    tone: "sky", 
+    items: ["MongoDB", "Mongoose", "SQL / DBMS"] 
+  },
   {
     group: "Core CS",
-    tone: "indigo",
+    tone: "purple",
     items: ["Data Structures & Algorithms", "System Design", "Computer Networks", "Operating Systems"],
   },
-  { group: "Languages", tone: "emerald", items: ["C", "C++", "Python", "Java"] },
+  { 
+    group: "Languages", 
+    tone: "emerald", 
+    items: ["C", "C++", "Python", "Java"] 
+  },
   {
     group: "Developer Tools",
-    tone: "amber",
+    tone: "rose",
     items: ["Git", "GitHub", "Agile / Scrum", "CI/CD pipelines", "VS Code"],
   },
 ];
@@ -75,7 +86,6 @@ const SKILLS: { group: string; items: string[]; tone: "indigo" | "emerald" | "am
 const GH = "https://github.com/Aaniket17";
 const LINKEDIN = "https://www.linkedin.com/in/aniketkumar17/";
 const GMAIL_COMPOSE = "https://mail.google.com/mail/?view=cm&fs=1&to=aniketkumar.2000.17@gmail.com";
-
 
 const PROJECTS = [
   {
@@ -155,10 +165,14 @@ const EDUCATION = [
 const EMAIL = "aniketkumar.2000.17@gmail.com";
 const PHONE = "+91-7007437359";
 
+// Refined, subtle, non-glaring colors
 const toneClass: Record<string, string> = {
-  indigo: "border-indigo/40 text-indigo bg-indigo/10",
-  emerald: "border-emerald/40 text-emerald bg-emerald/10",
-  amber: "border-amber/40 text-amber bg-amber/10",
+  indigo: "border-indigo-400/20 text-indigo-300 bg-indigo-500/10 hover:border-indigo-400/40 hover:bg-indigo-500/15",
+  teal: "border-teal-400/20 text-teal-300 bg-teal-500/10 hover:border-teal-400/40 hover:bg-teal-500/15",
+  sky: "border-sky-400/20 text-sky-300 bg-sky-500/10 hover:border-sky-400/40 hover:bg-sky-500/15",
+  purple: "border-purple-400/20 text-purple-300 bg-purple-500/10 hover:border-purple-400/40 hover:bg-purple-500/15",
+  emerald: "border-emerald-400/20 text-emerald-300 bg-emerald-500/10 hover:border-emerald-400/40 hover:bg-emerald-500/15",
+  rose: "border-rose-400/20 text-rose-300 bg-rose-500/10 hover:border-rose-400/40 hover:bg-rose-500/15",
 };
 
 function Section({
@@ -214,7 +228,6 @@ function Portfolio() {
     );
     toast.success("Opening Gmail compose…");
 
-
     setTimeout(() => {
       setSending(false);
       form.reset();
@@ -224,29 +237,33 @@ function Portfolio() {
   return (
     <div className="min-h-screen">
       {/* NAVBAR */}
-      <header className="sticky top-0 z-50 border-b border-surface-border/60 bg-background/70 backdrop-blur-xl">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
-          <a href="#top" className="flex items-center gap-2.5">
-            <span className="grid h-9 w-9 place-items-center rounded-xl btn-gradient font-display text-sm font-bold">
+      <header className="sticky top-0 z-50 border-b border-surface-border/60 bg-background/80 backdrop-blur-xl shadow-lg shadow-black/20">
+        <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+          <a href="#top" className="group flex items-center gap-3 transition-transform duration-300 hover:scale-105">
+            <span className="grid h-11 w-11 place-items-center rounded-2xl btn-gradient font-display text-base font-bold shadow-md shadow-indigo-500/20 transition-all duration-300 group-hover:rotate-6">
               A
             </span>
-            <span className="font-display text-lg font-bold grad-text">Aniket Kumar</span>
+            <span className="font-display text-xl font-extrabold tracking-tight sm:text-2xl grad-text">
+              Aniket Kumar
+            </span>
           </a>
-          <ul className="hidden items-center gap-7 lg:flex">
+          
+          <ul className="hidden items-center gap-2 md:flex lg:gap-3">
             {NAV.map((n) => (
               <li key={n}>
                 <a
                   href={`#${n.toLowerCase()}`}
-                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                  className="relative rounded-full px-4 py-2 text-base font-semibold text-muted-foreground/90 transition-all duration-300 hover:bg-white/10 hover:text-white hover:shadow-[0_0_15px_rgba(99,102,241,0.3)] hover:-translate-y-0.5 active:scale-95"
                 >
                   {n}
                 </a>
               </li>
             ))}
           </ul>
+
           <a
             href="#contact"
-            className="rounded-full btn-gradient px-5 py-2 text-sm font-semibold ring-glow"
+            className="rounded-full btn-gradient px-6 py-2.5 text-base font-bold tracking-wide ring-glow transition-all duration-300 hover:scale-105 active:scale-95 shadow-md shadow-indigo-500/30"
           >
             Hire Me
           </a>
@@ -258,7 +275,7 @@ function Portfolio() {
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-14">
           {/* TEXT COLUMN */}
           <div className="order-2 text-center lg:order-1 lg:text-left">
-            <span className="inline-flex animate-float items-center gap-2 rounded-full border border-emerald/40 bg-emerald/10 px-4 py-1.5 text-xs font-semibold text-emerald">
+            <span className="inline-flex animate-float items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-500/10 px-4 py-1.5 text-xs font-semibold text-emerald-300">
               <span className="animate-pulse-glow">🟢</span> Open to Software Engineer &amp; MERN Stack Roles
             </span>
             <h1 className="mt-7 text-4xl font-extrabold leading-[1.1] sm:text-5xl xl:text-6xl">
@@ -277,7 +294,7 @@ function Portfolio() {
                 Explore Projects <Rocket className="h-4 w-4" />
               </a>
               <a
-                href={resumeAsset.url}
+                href={resumePdf}
                 target="_blank"
                 rel="noreferrer"
                 download="AniketKumarResume.pdf"
@@ -295,13 +312,12 @@ function Portfolio() {
                   { icon: Mail, href: GMAIL_COMPOSE, label: "Gmail", ext: true },
                   { icon: Phone, href: "tel:+917007437359", label: "Phone", ext: false },
                 ].map(({ icon: Icon, href, label, ext }) => (
-
                   <a
                     key={label}
                     href={href}
                     aria-label={label}
                     {...(ext ? { target: "_blank", rel: "noreferrer" } : {})}
-                    className="grid h-11 w-11 place-items-center rounded-full border border-surface-border text-muted-foreground transition-all hover:-translate-y-1 hover:border-indigo/60 hover:text-foreground"
+                    className="grid h-11 w-11 place-items-center rounded-full border border-surface-border text-muted-foreground transition-all hover:-translate-y-1 hover:border-indigo-400/40 hover:text-foreground"
                   >
                     <Icon className="h-5 w-5" />
                   </a>
@@ -313,27 +329,21 @@ function Portfolio() {
           {/* PHOTO COLUMN */}
           <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
             <div className="group relative">
-              {/* Soft ambient glow */}
               <div className="absolute -inset-16 -z-10 rounded-full bg-blue-500/10 blur-[120px] opacity-60 transition-opacity duration-1000 group-hover:opacity-100" />
 
-              {/* Premium glass frame container */}
               <div className="animate-float">
                 <div className="relative z-10 rounded-[2.5rem] bg-white/5 p-1 backdrop-blur-2xl border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] sm:rounded-[3rem] sm:p-1.5 lg:rounded-[3.5rem]">
-                  {/* Portrait inner wrapper */}
                   <div className="relative overflow-hidden rounded-[2.3rem] bg-card ring-1 ring-white/5 sm:rounded-[2.8rem] lg:rounded-[3.2rem]">
                     <img
-                      src={profileAsset.url}
+                      src={profileImg}
                       alt="Aniket Kumar — Full Stack Developer"
                       className="block h-72 w-60 object-cover object-top transition-transform duration-700 group-hover:scale-105 sm:h-80 sm:w-64 lg:h-96 lg:w-72"
                       loading="eager"
                     />
-                    {/* Subtle gradient overlay for depth */}
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-white/5" />
-                    {/* Inner reflection streak */}
                     <div className="pointer-events-none absolute -inset-full -translate-x-full rotate-45 bg-gradient-to-tr from-transparent via-white/5 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
                   </div>
 
-                  {/* Availability indicator */}
                   <div className="absolute -bottom-4 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 rounded-full border border-white/10 bg-background/80 px-4 py-2 shadow-2xl backdrop-blur-xl">
                     <span className="relative flex h-2 w-2">
                       <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
@@ -346,7 +356,6 @@ function Portfolio() {
                 </div>
               </div>
 
-              {/* Outer technical corners */}
               <div className="absolute -right-2 -top-2 h-8 w-8 rounded-tr-2xl border-t border-r border-white/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               <div className="absolute -bottom-2 -left-2 h-8 w-8 rounded-bl-2xl border-b border-l border-white/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             </div>
@@ -380,7 +389,7 @@ function Portfolio() {
               {["MERN Stack", "Real-time Systems", "System Design", "Agile Delivery"].map((t) => (
                 <span
                   key={t}
-                  className="rounded-full border border-indigo/40 bg-indigo/10 px-3 py-1 text-xs font-medium text-indigo"
+                  className="rounded-full border border-indigo-400/20 bg-indigo-500/10 px-3.5 py-1 text-xs font-medium text-indigo-300"
                 >
                   {t}
                 </span>
@@ -388,7 +397,7 @@ function Portfolio() {
             </div>
           </div>
           <div className="glass flex flex-col justify-center gap-4 p-7">
-            <Sparkles className="h-6 w-6 text-amber" />
+            <Sparkles className="h-6 w-6 text-purple-300" />
             <p className="font-display text-lg font-bold">Currently</p>
             <p className="text-sm text-muted-foreground">
               Full Stack Web Development at Masai School — daily DSA, sprint-based team projects and
@@ -401,17 +410,17 @@ function Portfolio() {
         </div>
       </Section>
 
-      {/* SKILLS */}
+      {/* SKILLS (All Tones Now Balanced and Eye-Friendly) */}
       <Section id="skills" eyebrow="Toolkit" title="Technical Skills Matrix">
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {SKILLS.map((s) => (
             <div key={s.group} className="glass p-6">
-              <h3 className="mb-4 font-display text-lg font-bold">{s.group}</h3>
+              <h3 className="mb-4 font-display text-lg font-bold text-foreground/90">{s.group}</h3>
               <div className="flex flex-wrap gap-2">
                 {s.items.map((i) => (
                   <span
                     key={i}
-                    className={`rounded-lg border px-3 py-1 text-xs font-medium ${toneClass[s.tone]}`}
+                    className={`rounded-lg border px-3 py-1.5 text-xs font-medium transition-all duration-300 ${toneClass[s.tone]}`}
                   >
                     {i}
                   </span>
@@ -476,7 +485,7 @@ function Portfolio() {
               <div className="glass p-6">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <h3 className="font-display text-lg font-bold">{e.org}</h3>
-                  <span className="rounded-full border border-amber/40 bg-amber/10 px-3 py-1 text-[11px] font-semibold text-amber">
+                  <span className="rounded-full border border-rose-400/20 bg-rose-500/10 px-3 py-1 text-[11px] font-semibold text-rose-300">
                     {e.period}
                   </span>
                 </div>
@@ -494,7 +503,7 @@ function Portfolio() {
           {EDUCATION.map((ed) => (
             <div key={ed.title} className="glass p-6">
               <div className="flex items-center justify-between">
-                <span className="rounded-full border border-indigo/40 bg-indigo/10 px-3 py-1 text-[11px] font-semibold text-indigo">
+                <span className="rounded-full border border-indigo-400/25 bg-indigo-500/10 px-3 py-1 text-[11px] font-semibold text-indigo-300">
                   {ed.year}
                 </span>
                 <span className="font-display text-sm font-bold grad-text-neon">{ed.meta}</span>
@@ -515,7 +524,6 @@ function Portfolio() {
               { icon: Phone, label: "Phone", value: PHONE, href: "tel:+917007437359" },
               { icon: MapPin, label: "Location", value: "India", href: null },
             ].map(({ icon: Icon, label, value, href }) => (
-
               <div key={label} className="glass flex items-center gap-4 p-5">
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl btn-gradient">
                   <Icon className="h-5 w-5" />
@@ -537,7 +545,7 @@ function Portfolio() {
                   className="grid h-9 w-9 place-items-center rounded-lg border border-surface-border text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {copied === label ? (
-                    <Check className="h-4 w-4 text-emerald" />
+                    <Check className="h-4 w-4 text-emerald-400" />
                   ) : (
                     <Copy className="h-4 w-4" />
                   )}
@@ -561,7 +569,7 @@ function Portfolio() {
                 required
                 rows={5}
                 placeholder="Tell me about it…"
-                className="w-full rounded-xl border border-surface-border bg-secondary/40 px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-indigo"
+                className="w-full rounded-xl border border-surface-border bg-secondary/40 px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-indigo-400"
               />
             </label>
             <button
@@ -613,7 +621,7 @@ function Field({
         type={type}
         required
         placeholder={placeholder}
-        className="w-full rounded-xl border border-surface-border bg-secondary/40 px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-indigo"
+        className="w-full rounded-xl border border-surface-border bg-secondary/40 px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-indigo-400"
       />
     </label>
   );
