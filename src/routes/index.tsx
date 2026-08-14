@@ -203,8 +203,6 @@ function Portfolio() {
     const form = e.currentTarget;
     const data = new FormData(form);
     setSending(true);
-    const name = encodeURIComponent(String(data.get("name") || ""));
-    const fromEmail = encodeURIComponent(String(data.get("email") || ""));
     const subject = encodeURIComponent(String(data.get("subject") || "Portfolio enquiry"));
     const body = encodeURIComponent(
       `Name: ${data.get("name")}\nEmail: ${data.get("email")}\n\n${data.get("message")}`,
@@ -215,6 +213,7 @@ function Portfolio() {
       "noopener,noreferrer",
     );
     toast.success("Opening Gmail compose…");
+
 
     setTimeout(() => {
       setSending(false);
