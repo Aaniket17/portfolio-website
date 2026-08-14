@@ -73,6 +73,9 @@ const SKILLS: { group: string; items: string[]; tone: "indigo" | "emerald" | "am
 ];
 
 const GH = "https://github.com/Aaniket17";
+const LINKEDIN = "https://www.linkedin.com/in/aniketkumar17/";
+const GMAIL_COMPOSE = "https://mail.google.com/mail/?view=cm&fs=1&to=aniketkumar.2000.17@gmail.com";
+
 
 const PROJECTS = [
   {
@@ -204,8 +207,14 @@ function Portfolio() {
     const body = encodeURIComponent(
       `Name: ${data.get("name")}\nEmail: ${data.get("email")}\n\n${data.get("message")}`,
     );
-    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
-    toast.success("Opening your mail app…");
+    window.open(
+      `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}&su=${subject}&body=${body}`,
+      "_blank",
+      "noopener,noreferrer",
+    );
+    toast.success("Opening Gmail compose…");
+
+
     setTimeout(() => {
       setSending(false);
       form.reset();
@@ -282,10 +291,11 @@ function Portfolio() {
               <div className="flex items-center gap-2 rounded-full glass px-3 py-2">
                 {[
                   { icon: Github, href: GH, label: "GitHub", ext: true },
-                  { icon: Linkedin, href: "https://linkedin.com/in/Aniket", label: "LinkedIn", ext: true },
-                  { icon: Mail, href: `mailto:${EMAIL}`, label: "Email", ext: false },
+                  { icon: Linkedin, href: LINKEDIN, label: "LinkedIn", ext: true },
+                  { icon: Mail, href: GMAIL_COMPOSE, label: "Gmail", ext: true },
                   { icon: Phone, href: "tel:+917007437359", label: "Phone", ext: false },
                 ].map(({ icon: Icon, href, label, ext }) => (
+
                   <a
                     key={label}
                     href={href}
@@ -501,10 +511,11 @@ function Portfolio() {
         <div className="grid gap-5 lg:grid-cols-2">
           <div className="flex flex-col gap-4">
             {[
-              { icon: Mail, label: "Email", value: EMAIL, href: `mailto:${EMAIL}` },
+              { icon: Mail, label: "Email", value: EMAIL, href: GMAIL_COMPOSE },
               { icon: Phone, label: "Phone", value: PHONE, href: "tel:+917007437359" },
               { icon: MapPin, label: "Location", value: "India", href: null },
             ].map(({ icon: Icon, label, value, href }) => (
+
               <div key={label} className="glass flex items-center gap-4 p-5">
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl btn-gradient">
                   <Icon className="h-5 w-5" />
