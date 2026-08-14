@@ -13,6 +13,8 @@ import {
   Rocket,
   FileDown,
   Sparkles,
+  Menu,
+  X,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -200,6 +202,7 @@ function Section({
 function Portfolio() {
   const [copied, setCopied] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const copy = async (value: string, key: string) => {
     try {
@@ -248,6 +251,7 @@ function Portfolio() {
             </span>
           </a>
           
+          {/* Desktop Navigation */}
           <ul className="hidden items-center gap-2 md:flex lg:gap-3">
             {NAV.map((n) => (
               <li key={n}>
@@ -261,13 +265,45 @@ function Portfolio() {
             ))}
           </ul>
 
-          <a
-            href="#contact"
-            className="rounded-full btn-gradient px-6 py-2.5 text-base font-bold tracking-wide ring-glow transition-all duration-300 hover:scale-105 active:scale-95 shadow-md shadow-indigo-500/30"
-          >
-            Hire Me
-          </a>
+          {/* Desktop & Mobile Right Actions */}
+          <div className="flex items-center gap-3">
+            <a
+              href="#contact"
+              className="rounded-full btn-gradient px-5 py-2 text-sm sm:px-6 sm:py-2.5 sm:text-base font-bold tracking-wide ring-glow transition-all duration-300 hover:scale-105 active:scale-95 shadow-md shadow-indigo-500/30"
+            >
+              Hire Me
+            </a>
+
+            {/* Mobile Hamburger Toggle Button */}
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle navigation menu"
+              className="grid h-10 w-10 place-items-center rounded-xl border border-surface-border bg-secondary/50 text-foreground transition-all hover:bg-secondary active:scale-95 md:hidden"
+            >
+              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </nav>
+
+        {/* Mobile Navigation Dropdown Menu */}
+        {mobileMenuOpen && (
+          <div className="border-b border-surface-border/60 bg-background/95 px-6 py-4 backdrop-blur-2xl md:hidden animate-in slide-in-from-top-2">
+            <ul className="flex flex-col gap-2">
+              {NAV.map((n) => (
+                <li key={n}>
+                  <a
+                    href={`#${n.toLowerCase()}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block rounded-xl px-4 py-2.5 text-base font-semibold text-muted-foreground transition-colors hover:bg-white/10 hover:text-white"
+                  >
+                    {n}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </header>
 
       {/* HERO */}
@@ -410,7 +446,7 @@ function Portfolio() {
         </div>
       </Section>
 
-      {/* SKILLS (All Tones Now Balanced and Eye-Friendly) */}
+      {/* SKILLS */}
       <Section id="skills" eyebrow="Toolkit" title="Technical Skills Matrix">
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {SKILLS.map((s) => (
