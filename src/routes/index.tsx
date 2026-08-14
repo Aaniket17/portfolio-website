@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import resumeAsset from "@/assets/resume.pdf.asset.json";
+import profileAsset from "@/assets/passport_pic_1.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -220,7 +221,7 @@ function Portfolio() {
             <span className="grid h-9 w-9 place-items-center rounded-xl btn-gradient font-display text-sm font-bold">
               A
             </span>
-            <span className="font-display text-lg font-bold grad-text">Aniket.dev</span>
+            <span className="font-display text-lg font-bold grad-text">Aniket Kumar</span>
           </a>
           <ul className="hidden items-center gap-7 lg:flex">
             {NAV.map((n) => (
