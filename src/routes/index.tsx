@@ -115,7 +115,7 @@ const PROJECTS = [
       "Interactive visual algorithm tool allowing users to adjust array sizes and visualization speeds for classic sorting algorithms.",
     tech: ["JavaScript", "HTML5 Canvas", "Algorithms"],
     repo: GH,
-    demo: null,
+    demo: "https://sortingvisualizergame.vercel.app/",
   },
 ];
 
