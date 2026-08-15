@@ -123,21 +123,21 @@ const EXPERIENCE = [
   {
     org: "Masai School",
     role: "Full Stack Web Development (Remote)",
-    period: "June 2024 – Present",
+    period: "June 2025 – Present",
     detail:
       "Hands-on immersion in full-stack MERN development, DSA, scalable system architecture, and agile sprints.",
   },
   {
     org: "Tathastu Scholar",
     role: "Web Development Intern",
-    period: "Sep 2023 – Dec 2023",
+    period: "Sep 2022 – Dec 2022",
     detail:
       "Engineered a student course portal; implemented secure OAuth (Google, Facebook) and Passport Local authentication.",
   },
   {
     org: "HCL Technologies",
     role: "Technical Support Specialist",
-    period: "Dec 2020 – Jan 2021",
+    period: "Jan 2023 – Aug 2023",
     detail:
       "Delivered hardware/software diagnostic resolutions and troubleshooting for enterprise client systems.",
   },
